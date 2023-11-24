@@ -27,26 +27,38 @@ export default defineComponent({
 			theme: useTheme(),
 			isDisplayed: useNavBarExpanded(),
 			navBarClicked: useNavBarClicked(),
-			paths: [
-				{ p: "/editor/", n: "Editor" },
-				{ p: "/stats/",  n: "Statistics" },
-				{ p: "/",        n: "Parser" },
-				{ p: "/help/",   n: "Help" },
-				{ p: "/about/",  n: "About" },
+			showEditor: useShowEditor(),
+			commonPaths: [
+				{ p: "/stats/",   n: "Statistics" },
+				{ p: "/",         n: "Parser" },
+				{ p: "/help/",    n: "Help" },
+				{ p: "/options/", n: "Options" },
+				{ p: "/about/",   n: "About" },
 			],
+			paths: [] as { p: string, n: string }[],
 			bounce: true
 		};
 	},
 	mounted() {
-		if (this.navBarClicked !== "false") {
+		if (this.navBarClicked) {
 			this.bounce = false;
 		}
+		this.$watch("showEditor", () => this.updatePaths());
+		this.updatePaths();
 	},
 	methods: {
 		stopBounce() {
-			if (this.navBarClicked === "false") {
-				this.navBarClicked = "true";
+			if (!this.navBarClicked) {
+				this.navBarClicked = true;
 				this.bounce = false;
+			}
+		},
+		updatePaths() {
+			if (this.showEditor) {
+				this.paths = JSON.parse(JSON.stringify(this.commonPaths));
+				this.paths.splice(0, 0, { p: "/editor/", n: "Editor" });
+			} else {
+				this.paths = JSON.parse(JSON.stringify(this.commonPaths));
 			}
 		}
 	}

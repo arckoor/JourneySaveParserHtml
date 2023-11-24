@@ -25,6 +25,8 @@ function routeToTitle(route: string) {
 			return "About";
 		case "/help/":
 			return "Finding your Save.bin";
+		case "/options/":
+			return "Options";
 	}
 }
 
@@ -38,7 +40,7 @@ useHead({
 <template>
 	<Title>{{ routeToTitle($route.path) }}</Title>
 	<NavBar />
-	<div v-if="displayDropZone && !['/about/', '/help/'].includes($route.path)" class="dropZoneContainer">
+	<div v-if="displayDropZone && !['/about/', '/help/', '/options/'].includes($route.path)" class="dropZoneContainer">
 		<div
 			class="dropZone"
 			@click="clickInput"

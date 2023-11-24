@@ -1,7 +1,6 @@
 export default function() {
-	const navBarClicked = useCookie("navBarClicked", {
+	return useCookie("navBarClicked", {
 		maxAge: 31536000,
-		default: () => "false"
+		default: () => false
 	});
-	return navBarClicked;
 }

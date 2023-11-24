@@ -47,11 +47,11 @@ export default defineComponent({
 	},
 	methods: {
 		setConsent() {
-			this.cookie = "true";
+			this.cookie = true;
 			this.consented = true;
 		},
 		checkConsent()  {
-			if (this.cookie !== "false") {
+			if (this.cookie) {
 				this.consented = true;
 			}
 		},

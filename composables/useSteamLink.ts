@@ -1,5 +1,5 @@
 export default function() {
-	return useCookie("editorConsent", {
+	return useCookie("steamLink", {
 		maxAge: 31536000,
 		default: () => false
 	});
