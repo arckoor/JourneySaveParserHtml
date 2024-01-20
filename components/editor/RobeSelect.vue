@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { robe } from "images";
-const lightBackground = useLightBackground();
+const theme = useTheme();
 </script>
 
 <template>
@@ -16,7 +16,7 @@ const lightBackground = useLightBackground();
 		</template>
 	</EditorLayout>
 	<div class="button-container">
-		<div :class="lightBackground + ' cursorPointer button'" @click="changeRobe(2)">
+		<div :class="theme.background + ' cursorPointer button'" @click="changeRobe(2)">
 			Toggle Color
 		</div>
 	</div>

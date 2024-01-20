@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const lightBackground = useLightBackground();
+const theme = useTheme();
 </script>
 
 <template>
@@ -12,7 +12,7 @@ const lightBackground = useLightBackground();
 		</template>
 	</EditorLayout>
 	<div class="button-container">
-		<div :class="lightBackground + ' cursorPointer button'" @click="randomSymbol">
+		<div :class="theme.background + ' cursorPointer button'" @click="randomSymbol">
 			Random Symbol
 		</div>
 	</div>

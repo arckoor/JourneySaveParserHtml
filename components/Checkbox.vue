@@ -76,6 +76,7 @@ input[type=checkbox]:checked {
 	--inset: -20px;
 	width: 70px;
 	height: 70px;
+	cursor: pointer;
 }
 
 .checkbox-svg {

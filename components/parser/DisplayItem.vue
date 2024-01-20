@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const lightBackground = useLightBackground();
+const theme = useTheme();
 const steamLink = useSteamLink();
 
 defineProps<{
@@ -11,7 +11,7 @@ defineProps<{
 
 <template>
 	<a
-		:class="lightBackground"
+		:class="theme.background"
 		:href="steamLink ? 'steam://openurl/' + playerLink : playerLink"
 		target="_blank"
 		@dragstart.prevent

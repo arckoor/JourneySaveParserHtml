@@ -1,17 +1,5 @@
 <script setup lang="ts">
-const lightBackground = useLightBackground();
 const theme = useTheme();
-
-function setBackground() {
-	if (Math.random() > (1 - squarePolynomial(new Date().getHours(), -0.00694444, 0.1666666))) {
-		lightBackground.value += " hovLight";
-		theme.value.isLight = true;
-		return "light";
-	} else {
-		theme.value.isLight = false;
-		return "dark";
-	}
-}
 
 function routeToTitle(route: string) {
 	switch(route) {
@@ -32,7 +20,7 @@ function routeToTitle(route: string) {
 
 useHead({
 	bodyAttrs: {
-		class: setBackground()
+		class: theme.value.isLight ? "light" : "dark"
 	}
 });
 </script>
@@ -57,7 +45,7 @@ useHead({
 				@change="inputHandler()"
 			>
 		</div>
-		<NuxtLink to="/help/" :class="'help-link ' + lightBackground">I need help finding my Save.bin!</NuxtLink>
+		<NuxtLink to="/help/" :class="'help-link ' + theme.background">I need help finding my Save.bin!</NuxtLink>
 	</div>
 	<div
 		v-else

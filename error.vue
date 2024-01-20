@@ -1,8 +1,22 @@
+<script setup lang="ts">
+const theme = useTheme();
+
+defineProps<{
+	error: Error;
+}>();
+
+useHead({
+	bodyAttrs: {
+		class: theme.value.isLight ? "light" : "dark"
+	}
+});
+</script>
+
 <template>
 	<NavBar />
 	<div class="container">
-		<div class="text">It seems like this page was lost in the sands...</div>
-		<NuxtLink to="/" class="hov hovLight cursorPointer">Go back home</NuxtLink>
+		<div>It seems like this page was lost in the sands...</div>
+		<NuxtLink to="/" :class="theme.background + ' cursorPointer'">Go back home</NuxtLink>
 	</div>
 </template>
 
@@ -14,6 +28,7 @@
 	flex-direction: column;
 	height: 100vh;
 	font-size: var(--font-size--heading);
+	text-align: center;
 }
 
 a,

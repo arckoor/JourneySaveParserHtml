@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Companions } from "utils/interfaces";
+import type { Companions } from "utils/interfaces";
 
 const saves = useSaves().value;
 const companions = ref([] as Array<Companions>);

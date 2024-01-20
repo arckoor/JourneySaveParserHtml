@@ -12,9 +12,8 @@ const importImage = async () => {
 	webp.value = await import(`images/levels/${props.src}.webp`);
 };
 
-await importImage();
 watch(props, async () => await importImage(), { deep: true });
-
+await importImage();
 </script>
 
 <template>

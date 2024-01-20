@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const lightBackground = useLightBackground();
+const theme = useTheme();
 
 defineProps<{
 	callback: () => void
@@ -11,7 +11,7 @@ const lvlNames = ["Level Select", "Robe Select", "Scarf Length Select", "Symbol 
 <template>
 	<div class="container">
 		<div
-			:class="lightBackground + ' block cursorPointer'"
+			:class="theme.background + ' block cursorPointer'"
 			v-for="(item, i) in lvlNames"
 			:key="i"
 			@click="() => {enable(i); if (i === 1) callback(); }"

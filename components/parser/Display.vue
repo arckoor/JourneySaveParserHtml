@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Companions } from "utils/interfaces";
+import type { Companions } from "utils/interfaces";
 
 interface Props {
 	headingName?: string

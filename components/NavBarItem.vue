@@ -4,14 +4,14 @@ defineProps<{
 	displayName: string
 }>();
 defineEmits(["retract"]);
-const lightBackground = useLightBackground();
+const theme = useTheme();
 </script>
 
 <template>
 	<div>
 		<NuxtLink
 			:to="link"
-			:class="'item ' + lightBackground"
+			:class="'item ' + theme.background"
 			@click="$emit('retract')"
 			@dragstart.prevent
 		>
