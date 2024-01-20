@@ -3,6 +3,7 @@
 	<EditorLayout @left-arrow="changeLevel(0)" @right-arrow="changeLevel(1)">
 		<template #innerEditorContent>
 			<SourcedImage
+				v-if="ready"
 				class="img"
 				:src="`${levelIndex+1}`"
 				alt="The currently selected Level"
@@ -17,7 +18,8 @@ export default defineComponent({
 	data() {
 		return {
 			saves: useSaves().value,
-			levelIndex: 0
+			levelIndex: 0,
+			ready: false
 		};
 	},
 	mounted() {
@@ -34,6 +36,7 @@ export default defineComponent({
 		},
 		updateLevel() {
 			this.levelIndex = readData(this.saves, "u8", offsets.levelValue) as number - 1;
+			this.ready = true;
 		}
 	}
 });

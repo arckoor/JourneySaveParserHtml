@@ -65,7 +65,7 @@ export default defineComponent({
 		initialize() {
 			this.robeColor = readData(this.saves, "u8", offsets.robeValue) as number > 3 ? "White" : "Red";
 			this.levelValue = clamp(readData(this.saves, "u8", offsets.levelValue) as number-1, 0, 11);
-			this.scarfValue = readData(this.saves, "u8", offsets.scarfValue) as number;
+			this.scarfValue = clamp(readData(this.saves, "u8", offsets.scarfValue) as number, 0, 30);
 			this.scarfRule = readData(this.saves, "u8", offsets.symbolAmount) as number % 2;
 			this.adjustScarfColor();
 			this.updateRecommendation();
