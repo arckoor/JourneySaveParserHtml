@@ -42,7 +42,7 @@
 			<details open>
 				<summary>I still need help</summary>
 				Check the <a href="https://journey.fandom.com/wiki/Guide:_PC_version_-_Companions_Met_Along_the_Way_Problems#Steam_-_SAVE.BIN" target="_blank">wiki</a>. <br />
-				Come join the <a href="https://discord.gg/83QunNN" target="_blanK">Journey Discord</a> and ask your question in #tech-support. <br />
+				Come join the <a href="https://discord.gg/TG6GMq4Cyg" target="_blanK">Journey Discord</a> and ask your question in #tech-support. <br />
 				If necessary ping @arckoor.
 			</details>
 		</div>
