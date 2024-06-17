@@ -23,12 +23,18 @@ useHead({
 		class: theme.value.isLight ? "light" : "dark"
 	}
 });
+
+const route = useRoute();
+
+const pathInclude = computed(() => {
+	return !["/about/", "/help/", "/options/"].includes(route.path);
+});
 </script>
 
 <template>
-	<Title>{{ routeToTitle($route.path) }}</Title>
 	<NavBar />
-	<div v-if="displayDropZone && !['/about/', '/help/', '/options/'].includes($route.path)" class="dropZoneContainer">
+	<Title>{{ routeToTitle($route.path) }}</Title>
+	<div v-if="displayDropZone && pathInclude" class="dropZoneContainer">
 		<div
 			class="dropZone"
 			@click="clickInput"
@@ -48,8 +54,7 @@ useHead({
 		<NuxtLink to="/help/" :class="'help-link ' + theme.background">I need help finding my Save.bin!</NuxtLink>
 	</div>
 	<div
-		v-else
-		class="hidden-dropZone"
+		:class="!displayDropZone ? 'hidden-dropZone' : 'hidden'"
 		@drop.prevent="dropHandler($event)"
 		@dragenter.prevent
 		@dragover.prevent
@@ -145,5 +150,9 @@ a:visited {
 	left: 0;
 	width: 100%;
 	height: 100%;
+}
+
+.hidden {
+	display: none;
 }
 </style>

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { Companions } from "utils/interfaces";
 
+const displayDropZone = useDisplayDropZone();
 const saves = useSaves().value;
 const companions = ref([] as Array<Companions>);
 const pastCompanions = ref([] as Array<Companions>);
@@ -36,5 +37,5 @@ watch(saves, () => createData(), { deep: true });
 </script>
 
 <template>
-	<ParserDisplay :companions="companions" :past-companions="pastCompanions" />
+	<ParserDisplay :companions="companions" :past-companions="pastCompanions" v-if="!displayDropZone" />
 </template>

@@ -40,5 +40,8 @@ export default defineNuxtConfig({
 			"/editor",
 			"/help"
 		]
+	},
+	devtools: {
+		enabled: true
 	}
 });

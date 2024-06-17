@@ -1,15 +1,16 @@
 <script setup lang="ts">
+const displayDropZone = useDisplayDropZone();
 const theme = useTheme();
 </script>
 
 <template>
-	<div v-if="!consented" class="consentZone">
+	<div v-if="!consented && !displayDropZone" class="consentZone">
 		The editor should be used with caution.<br />
 		Use common sense to not ruin the experience for other players. <br />
 		Please acknowledge these responsibilities before proceeding.
 		<div class="consentButton cursorPointer" @click="setConsent">I understand.</div>
 	</div>
-	<CurtainsCurtainWrapper v-else>
+	<CurtainsCurtainWrapper v-if="consented && !displayDropZone">
 		<template #content="{ renderCallback }">
 			<div class="editZone">
 				<EditorOverview :enable="setActive" :callback="renderCallback" v-if="active.every((e: number) => e === 0)"/>

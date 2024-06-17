@@ -5,12 +5,13 @@ import StatsMiscDisplay from "components/stats/MiscDisplay.vue";
 import StatsSymbolDisplay from "components/stats/SymbolDisplay.vue";
 import StatsMuralDisplay from "components/stats/MuralDisplay.vue";
 
+const displayDropZone = useDisplayDropZone();
 const headings = ["General", "Journey", "Miscellaneous", "Symbols", "Murals"];
 const components = [StatsGeneralDisplay, StatsJourneyDisplay, StatsMiscDisplay, StatsSymbolDisplay, StatsMuralDisplay];
 </script>
 
 <template>
-	<div class="wrapper">
+	<div class="wrapper" v-if="!displayDropZone">
 		<div v-for="i in headings.length" :key="i" :class="headings[i-1].toLowerCase()">
 			<div class="content">
 				<div class="heading">{{ headings[i-1] }}</div>
