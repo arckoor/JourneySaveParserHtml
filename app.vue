@@ -54,7 +54,7 @@ const pathInclude = computed(() => {
 		<NuxtLink to="/help/" :class="'help-link ' + theme.background">I need help finding my Save.bin!</NuxtLink>
 	</div>
 	<div
-		:class="!displayDropZone ? 'hidden-dropZone' : 'hidden'"
+		:class="(!displayDropZone || !pathInclude)? 'hidden-dropZone' : 'hidden'"
 		@drop.prevent="dropHandler($event)"
 		@dragenter.prevent
 		@dragover.prevent
