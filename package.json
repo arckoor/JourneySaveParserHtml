@@ -14,15 +14,15 @@
   },
   "devDependencies": {
     "@nuxtjs/eslint-config-typescript": "^12.1.0",
-    "@typescript-eslint/eslint-plugin": "^7.2.0",
-    "@typescript-eslint/parser": "^7.2.0",
-    "curtainsjs": "^8.1.5",
-    "eslint": "^8.57.0",
-    "eslint-plugin-vue": "^9.23.0",
-    "fantasticon": "^1.2.3",
-    "nuxt": "^3.10.3",
-    "typescript": "^5.4.2",
+    "@typescript-eslint/eslint-plugin": "^7.16.1",
+    "@typescript-eslint/parser": "^7.16.1",
+    "curtainsjs": "^8.1.6",
+    "eslint": "^8.48.0",
+    "eslint-plugin-vue": "^9.27.0",
+    "fantasticon": "^3.0.0",
+    "nuxt": "^3.12.4",
+    "typescript": "^5.5.3",
     "vue-curtains": "^1.0.2",
-    "vue-tsc": "^1.8.22"
+    "vue-tsc": "^2.0.26"
   }
 }
