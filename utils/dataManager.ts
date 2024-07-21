@@ -1,32 +1,31 @@
 export function writeData(
-	saves: { u8: Uint8Array, u32: Uint32Array, u64: BigUint64Array },
+	saves: {
+		get: () => { u8: Uint8Array, u32: Uint32Array, u64: BigUint64Array },
+		set: (data: ArrayBuffer) => void
+	},
 	type: "u8" | "u32" | "u64",
 	offset: number,
 	data: number
 ) {
+	const save = saves.get();
 	const divisor = type === "u8" ? 1 : type === "u32" ? 4 : 8;
-	saves[type][offset/divisor] = data;
-	synchronizeSaves(saves, saves[type].buffer);
+	save[type][offset / divisor] = data;
+	saves.set(save[type].buffer);
 }
 
 export function readData(
-	saves: { u8: Uint8Array, u32: Uint32Array, u64: BigUint64Array },
+	saves: {
+		get: () => { u8: Uint8Array, u32: Uint32Array, u64: BigUint64Array },
+		set: (data: Uint8Array) => void
+	},
 	type: "u8" | "u32" | "u64",
 	offset: number, until: number | undefined = undefined
 ) {
+	const save = saves.get();
 	const divisor = type === "u8" ? 1 : type === "u32" ? 4 : 8;
 	if (typeof until === "undefined") {
-		return Number(saves[type][offset/divisor]);
+		return Number(save[type][offset / divisor]);
 	} else {
-		return saves[type].slice(offset, offset+until);
+		return save[type].slice(offset, offset + until);
 	}
-}
-
-function synchronizeSaves(
-	saves: { u8: Uint8Array, u32: Uint32Array, u64: BigUint64Array },
-	buffer: ArrayBuffer
-) {
-	saves.u8 = new Uint8Array(buffer);
-	saves.u32 = new Uint32Array(buffer);
-	saves.u64 = new BigUint64Array(buffer);
 }

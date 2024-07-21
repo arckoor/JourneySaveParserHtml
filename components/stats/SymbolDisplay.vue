@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { locations } from "images";
-const saves = useSaves().value;
+const saves = useSaves();
 const symbolData = ref([] as Array<Array<boolean>>);
 const randomSymbols = new Array<Array<number>>();
 

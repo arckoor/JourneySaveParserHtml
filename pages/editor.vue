@@ -35,7 +35,7 @@ const theme = useTheme();
 export default defineComponent({
 	data() {
 		return {
-			saves: useSaves().value,
+			saves: useSaves(),
 			cookie: useEditorConsent(),
 			active: [0, 0, 0, 0],
 			consented: false
@@ -70,7 +70,8 @@ export default defineComponent({
 		},
 		download() {
 			// https://stackoverflow.com/a/30832210
-			let file = new Blob([this.saves.u8 as Uint8Array]);
+			const save = this.saves.get();
+			let file = new Blob([save.u8]);
 			let a = document.createElement("a"), url = URL.createObjectURL(file);
 			a.href = url;
 			a.download = "SAVE.BIN";

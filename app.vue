@@ -69,11 +69,12 @@ export default defineComponent({
 		return {
 			saves: useSaves(),
 			displayDropZone: useDisplayDropZone(),
-			fileReader: new FileReader(),
+			fileReader: null as FileReader | null,
 			tooltipEnabled: false
 		};
 	},
 	mounted() {
+		this.fileReader = new FileReader();
 		this.fileReader.onload = (callbackEvent) => this.callback(callbackEvent);
 	},
 	methods: {
@@ -81,9 +82,15 @@ export default defineComponent({
 			(this.$refs.input as HTMLInputElement).click();
 		},
 		inputHandler() {
+			if (!this.fileReader) {
+				return;
+			}
 			this.fileReader.readAsArrayBuffer(((this.$refs.input as HTMLInputElement).files as FileList)[0]);
 		},
 		dropHandler(ev: DragEvent) {
+			if (!this.fileReader) {
+				return;
+			}
 			// Moz wiki https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API/File_drag_and_drop
 			this.fileReader.onload = (callbackEvent) => this.callback(callbackEvent);
 			ev.preventDefault();
@@ -98,9 +105,7 @@ export default defineComponent({
 		},
 		callback(callbackEvent: ProgressEvent) {
 			const buffer = (callbackEvent.target as FileReader).result as ArrayBuffer;
-			this.saves.u8 = new Uint8Array(buffer);
-			this.saves.u32 = new Uint32Array(buffer);
-			this.saves.u64 = new BigUint64Array(buffer);
+			this.saves.set(buffer);
 			this.displayDropZone = false;
 		}
 	}

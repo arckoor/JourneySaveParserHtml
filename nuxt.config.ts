@@ -15,7 +15,7 @@ export default defineNuxtConfig({
 	css: [
 		"css/style.css"
 	],
-	ssr: false,
+	ssr: true,
 	spaLoadingTemplate: "loading.html",
 	app: {
 		head: {
@@ -35,10 +35,10 @@ export default defineNuxtConfig({
 	generate: {
 		routes: [
 			"/",
-			"/about",
-			"/stats",
-			"/editor",
-			"/help"
+			"/about/",
+			"/stats/",
+			"/editor/",
+			"/help/"
 		]
 	},
 	devtools: {

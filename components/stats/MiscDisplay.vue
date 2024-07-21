@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const saves = useSaves().value;
+const saves = useSaves();
 const names = ref([] as string[]);
 const values = ref([] as string[]);
 

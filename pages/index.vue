@@ -2,7 +2,7 @@
 import type { Companions } from "utils/interfaces";
 
 const displayDropZone = useDisplayDropZone();
-const saves = useSaves().value;
+const saves = useSaves();
 const companions = ref([] as Array<Companions>);
 const pastCompanions = ref([] as Array<Companions>);
 
@@ -33,7 +33,7 @@ const createData = () => {
 };
 
 createData();
-watch(saves, () => createData(), { deep: true });
+watch(saves.get, () => createData(), { deep: true });
 </script>
 
 <template>

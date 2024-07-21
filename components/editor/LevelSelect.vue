@@ -17,7 +17,7 @@
 export default defineComponent({
 	data() {
 		return {
-			saves: useSaves().value,
+			saves: useSaves(),
 			levelIndex: 0,
 			ready: false
 		};

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { locations } from "images";
-const saves = useSaves().value;
+const saves = useSaves();
 const muralData = ref([] as boolean[][]);
 
 const createData = () => {
