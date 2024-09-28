@@ -1,0 +1,4 @@
+http://localhost {
+	root * /journey-save-parser/
+	file_server
+}

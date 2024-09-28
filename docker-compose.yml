@@ -1,0 +1,21 @@
+services:
+  journey-save-parser:
+    image: ghcr.io/arckoor/journey-save-parser:latest
+    build: .
+    restart: unless-stopped
+    container_name: journey-save-parser
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+    networks:
+      - journey-save-parser-network
+
+volumes:
+  caddy_data:
+  caddy_config:
+
+networks:
+  journey-save-parser-network:
+    name: journey-save-parser-network
+    internal: true

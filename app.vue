@@ -1,19 +1,24 @@
 <script setup lang="ts">
 const theme = useTheme();
 
+function normalizeRoute(route: string) {
+	return route.replace(/\/+$/, "");
+}
+
 function routeToTitle(route: string) {
-	switch(route) {
-		case "/":
+	let normalized = normalizeRoute(route);
+	switch(normalized) {
+		case "":
 			return "Journey Parser";
-		case "/stats/":
+		case "/stats":
 			return "Journey Statistics";
-		case "/editor/":
+		case "/editor":
 			return "Journey Editor";
-		case "/about/":
+		case "/about":
 			return "About";
-		case "/help/":
+		case "/help":
 			return "Finding your Save.bin";
-		case "/options/":
+		case "/options":
 			return "Options";
 	}
 }
@@ -27,7 +32,8 @@ useHead({
 const route = useRoute();
 
 const pathInclude = computed(() => {
-	return !["/about/", "/help/", "/options/"].includes(route.path);
+	let normalized = normalizeRoute(route.path);
+	return !["/about", "/help", "/options"].includes(normalized);
 });
 </script>
 
@@ -54,7 +60,7 @@ const pathInclude = computed(() => {
 		<NuxtLink to="/help/" :class="'help-link ' + theme.background">I need help finding my Save.bin!</NuxtLink>
 	</div>
 	<div
-		:class="(!displayDropZone || !pathInclude)? 'hidden-dropZone' : 'hidden'"
+		:class="(!displayDropZone || !pathInclude) ? 'hidden-dropZone' : 'hidden'"
 		@drop.prevent="dropHandler($event)"
 		@dragenter.prevent
 		@dragover.prevent
