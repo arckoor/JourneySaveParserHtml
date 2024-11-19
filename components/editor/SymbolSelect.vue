@@ -29,7 +29,7 @@ export default defineComponent({
 		};
 	},
 	mounted() {
-		this.$watch("saves", () => {
+		this.$watch(this.saves.get, () => {
 			if (!this.superseded) {
 				this.updateSymbol();
 			} else {

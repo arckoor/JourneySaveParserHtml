@@ -33,7 +33,7 @@ export default defineComponent({
 		};
 	},
 	mounted() {
-		this.$watch("saves", () => this.updateRobe(), { deep: true });
+		this.$watch(this.saves.get, () => this.updateRobe(), { deep: true });
 		this.updateRobe();
 	},
 	methods: {

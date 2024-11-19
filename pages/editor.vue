@@ -42,7 +42,7 @@ export default defineComponent({
 		};
 	},
 	mounted() {
-		this.$watch("saves", () => this.checkLevel(), { deep: true });
+		this.$watch(this.saves.get, () => this.checkLevel(), { deep: true });
 		this.checkConsent();
 		this.checkLevel();
 	},
