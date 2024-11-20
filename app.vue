@@ -42,11 +42,12 @@ const pathInclude = computed(() => {
 	<Title>{{ routeToTitle($route.path) }}</Title>
 	<div v-if="displayDropZone && pathInclude" class="dropZoneContainer">
 		<div
-			class="dropZone"
+			:class="'dropZone' + (dragging ? ' dz-dragover' : '')"
 			@click="clickInput"
-			@dragenter.prevent
+			@dragenter.prevent="dragging = true"
+			@dragleave.prevent="dragging = false"
 			@dragover.prevent
-			@drop.prevent="dropHandler($event)"
+			@drop.prevent="dropHandler"
 		>
 			Click or Drop your Journey Save.bin here
 			<input
@@ -60,10 +61,11 @@ const pathInclude = computed(() => {
 		<NuxtLink to="/help/" :class="'help-link ' + theme.background">I need help finding my Save.bin!</NuxtLink>
 	</div>
 	<div
-		:class="(!displayDropZone || !pathInclude) ? 'hidden-dropZone' : 'hidden'"
-		@drop.prevent="dropHandler($event)"
-		@dragenter.prevent
+		:class="((!displayDropZone || !pathInclude) ? 'hidden-dropZone' : 'hidden') + (dragging ? ' hdz-dragover' : '')"
+		@dragenter.prevent="dragTest($event, true)"
+		@dragleave.prevent="dragTest($event, false)"
 		@dragover.prevent
+		@drop.prevent="dropHandler"
 	>
 		<NuxtPage />
 	</div>
@@ -76,7 +78,8 @@ export default defineComponent({
 			saves: useSaves(),
 			displayDropZone: useDisplayDropZone(),
 			fileReader: null as FileReader | null,
-			tooltipEnabled: false
+			tooltipEnabled: false,
+			dragging: false
 		};
 	},
 	mounted() {
@@ -84,6 +87,11 @@ export default defineComponent({
 		this.fileReader.onload = (callbackEvent) => this.callback(callbackEvent);
 	},
 	methods: {
+		dragTest(e: DragEvent, set: boolean) {
+			if (!(e.currentTarget as HTMLElement)?.contains(e.relatedTarget as Node)) {
+				this.dragging = set;
+			}
+		},
 		clickInput() {
 			(this.$refs.input as HTMLInputElement).click();
 		},
@@ -94,6 +102,7 @@ export default defineComponent({
 			this.fileReader.readAsArrayBuffer(((this.$refs.input as HTMLInputElement).files as FileList)[0]);
 		},
 		dropHandler(ev: DragEvent) {
+			this.dragging = false;
 			if (!this.fileReader) {
 				return;
 			}
@@ -139,6 +148,11 @@ export default defineComponent({
 	margin-bottom: 10px;
 	width: 95%;
 	height: 33%;
+	transition: transform 0.3s ease;
+}
+
+.dz-dragover {
+	transform: scale(1.01);
 }
 
 .help-link {
@@ -161,6 +175,14 @@ a:visited {
 	left: 0;
 	width: 100%;
 	height: 100%;
+	box-sizing: border-box;
+	border: 4px solid transparent;
+	border-top: 0px;
+	transition: border-color 0.5s ease;
+}
+
+.hdz-dragover {
+	border-color: #ffffff;
 }
 
 .hidden {
