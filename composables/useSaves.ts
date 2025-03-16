@@ -12,7 +12,7 @@ export default function() {
 		};
 	}
 
-	function set(data: ArrayBuffer) {
+	function set(data: ArrayBufferLike) {
 		state.value.rawData = Array.from(new Uint8Array(data));
 	}
 

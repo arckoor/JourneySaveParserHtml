@@ -1,7 +1,7 @@
 export function writeData(
 	saves: {
 		get: () => { u8: Uint8Array, u32: Uint32Array, u64: BigUint64Array },
-		set: (data: ArrayBuffer) => void
+		set: (data: ArrayBufferLike) => void
 	},
 	type: "u8" | "u32" | "u64",
 	offset: number,
@@ -16,7 +16,7 @@ export function writeData(
 export function readData(
 	saves: {
 		get: () => { u8: Uint8Array, u32: Uint32Array, u64: BigUint64Array },
-		set: (data: Uint8Array) => void
+		set: (data: ArrayBufferLike) => void
 	},
 	type: "u8" | "u32" | "u64",
 	offset: number, until: number | undefined = undefined
