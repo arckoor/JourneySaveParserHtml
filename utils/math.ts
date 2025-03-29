@@ -21,6 +21,6 @@ export function clamp(num: number, min: number, max: number) {
 
 // https://stackoverflow.com/a/46545530/12203337
 /* eslint-disable-next-line @typescript-eslint/no-explicit-any*/
-export function shuffle(a: Array<any>) {
+export function shuffle<T>(a: Array<T>): Array<T> {
 	return a.map(v => ({ v, sort: Math.random() })).sort((q, s) => q.sort - s.sort).map(({ v }) => v);
 }
