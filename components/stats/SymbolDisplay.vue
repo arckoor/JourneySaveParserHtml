@@ -8,7 +8,7 @@ const symbols = shuffle([...Array(21).keys()]);
 for (let i=0; i<6; i++) {
 	let sym = [];
 	for (let j=0; j<sectionLength(i); j++) {
-		sym.push(symbols.pop());
+		sym.push(symbols.pop() as number);
 	}
 	randomSymbols.push(sym);
 }

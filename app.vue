@@ -60,8 +60,9 @@ const pathInclude = computed(() => {
 		</div>
 		<NuxtLink to="/help/" :class="'help-link ' + theme.background">I need help finding my Save.bin!</NuxtLink>
 	</div>
+	<Captcha v-else-if="!displayDropZone && displayCaptcha" />
 	<div
-		:class="((!displayDropZone || !pathInclude) ? 'hidden-dropZone' : 'hidden') + (dragging ? ' hdz-dragover' : '')"
+		:class="(((!displayDropZone && !displayCaptcha) || !pathInclude) ? 'hidden-dropZone' : 'hidden') + (dragging ? ' hdz-dragover' : '')"
 		@dragenter.prevent="dragTest($event, true)"
 		@dragleave.prevent="dragTest($event, false)"
 		@dragover.prevent
@@ -77,6 +78,7 @@ export default defineComponent({
 		return {
 			saves: useSaves(),
 			displayDropZone: useDisplayDropZone(),
+			displayCaptcha: useDisplayCaptcha(),
 			fileReader: null as FileReader | null,
 			tooltipEnabled: false,
 			dragging: false
