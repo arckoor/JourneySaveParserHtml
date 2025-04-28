@@ -31,21 +31,27 @@ export default defineComponent({
 	},
 	methods: {
 		bufferCurtain(curtain: typeof Curtains) {
-			this.curtain = curtain;
-			curtain.disableDrawing();
+			if (this.curtainsAvailable) {
+				this.curtain = curtain;
+				curtain.disableDrawing();
+			}
 		},
 		onContextLost(curtain: typeof Curtains) {
-			curtain.restoreContext();
+			if (this.curtainsAvailable) {
+				curtain.restoreContext();
+			}
 		},
 		onError() {
 			this.curtainsAvailable = false;
 		},
 		callback() {
 			this.drawing = !this.drawing;
-			if (this.drawing) {
-				this.curtain.enableDrawing();
-			} else {
-				this.curtain.disableDrawing();
+			if (this.curtainsAvailable) {
+				if (this.drawing) {
+					this.curtain.enableDrawing();
+				} else {
+					this.curtain.disableDrawing();
+				}
 			}
 		}
 	}

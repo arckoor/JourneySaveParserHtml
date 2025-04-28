@@ -12,7 +12,7 @@ defineProps<{
 <template>
 	<a
 		:class="theme.background"
-		:href="steamLink ? 'steam://openurl/' + playerLink : playerLink"
+		:href="playerLink"
 		target="_blank"
 		@dragstart.prevent
 	>

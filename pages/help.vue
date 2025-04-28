@@ -73,6 +73,7 @@ details {
 
 summary {
 	font-size: var(--font-size--section);
+	cursor: pointer;
 }
 
 a,

@@ -13,18 +13,18 @@
     "generateFont": "fantasticon"
   },
   "dependencies": {
-    "@types/node": "^22.13.14",
+    "@types/node": "^22.15.3",
     "curtainsjs": "^8.1.6",
     "fantasticon": "^3.0.0",
-    "nuxt": "^3.16.1",
-    "typescript": "^5.8.2",
+    "nuxt": "^3.17.0",
+    "typescript": "^5.8.3",
     "vue-curtains": "^1.0.2",
-    "vue-tsc": "^2.2.8"
+    "vue-tsc": "^2.2.10"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^8.28.0",
-    "@typescript-eslint/parser": "^8.28.0",
-    "eslint": "^9.23.0",
+    "@typescript-eslint/eslint-plugin": "^8.31.0",
+    "@typescript-eslint/parser": "^8.31.0",
+    "eslint": "^9.25.1",
     "eslint-plugin-vue": "^10.0.0"
   }
 }
