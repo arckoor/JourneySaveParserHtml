@@ -10,7 +10,7 @@
 		</div>
 		<div class="center" :class="bounce ? 'bounce' : ''" @click="stopBounce">
 			<img
-				:style="{ transform: (isDisplayed ? 'rotate(90deg)' : 'rotate(270deg)') }"
+				:style="{ transform: (isDisplayed ? 'rotate(90deg)' : 'rotate(270deg)'), cursor: 'pointer' }"
 				src="~images/arrows/arrow1L.svg"
 				alt="Expand Navigation Bar"
 				@click="isDisplayed = !isDisplayed"

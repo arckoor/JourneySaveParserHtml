@@ -60,6 +60,7 @@ img {
 	transition: transform 0.2s;
 	width: 130px;
 	height: 130px;
+	cursor: pointer;
 }
 
 div {

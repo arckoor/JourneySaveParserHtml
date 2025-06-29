@@ -24,7 +24,7 @@ const createData = () => {
 		const symbolNumber = readData(saves, "u8", offsets.companionSymbol + offsets.companionSymbolOffset * i) as number;
 		const symbol = 0xF101 + symbolNumber;
 
-		const playerLink = steamLink ? 'steam://openurl/' + profileLink : profileLink;
+		const playerLink = steamLink.value ? 'steam://openurl/' + profileLink : profileLink;
 
 		const companionData = { l: playerLink, n: name, s: symbol };
 		if (steamIdV3int32 !== 0) {
