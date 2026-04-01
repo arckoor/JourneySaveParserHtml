@@ -32,14 +32,16 @@ export default defineNuxtConfig({
 			}
 		}
 	},
-	generate: {
-		routes: [
-			"/",
-			"/about/",
-			"/stats/",
-			"/editor/",
-			"/help/"
-		]
+	nitro: {
+		prerender: {
+			routes: [
+				"/",
+				"/about/",
+				"/stats/",
+				"/editor/",
+				"/help/"
+			]
+		}
 	},
 	devtools: {
 		enabled: true

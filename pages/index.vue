@@ -26,13 +26,34 @@ const createData = () => {
 
 		const playerLink = steamLink.value ? 'steam://openurl/' + profileLink : profileLink;
 
-		const companionData = { l: playerLink, n: name, s: symbol };
+		const companionData = { l: playerLink, n: name, r: 0xF101 + randomInt(0, 20), s: symbol };
 		if (steamIdV3int32 !== 0) {
 			(i < companionNumber) ? companions.value.push(companionData) : pastCompanions.value.push(companionData);
 		} else {
 			break;
 		}
 	}
+
+	const allEntries = [
+		...companions.value,
+		...pastCompanions.value
+	];
+
+	for (const entry of allEntries) {
+		randomizeEntry(entry);
+	}
+};
+
+const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+
+const randomizeEntry = async (entry: Companions) => {
+	let delay = 2;
+	for (let i = 0; i < 35; i++) {
+		entry.r = 0xF101 + randomInt(0, 20);
+		await sleep(delay + randomFloat(0, 100));
+		delay *= 1.2;
+	}
+	entry.r = entry.s;
 };
 
 createData();

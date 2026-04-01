@@ -27,7 +27,7 @@ withDefaults(defineProps<Props>(), {
 						:key="`companions-${j}`"
 						:player-link="player.l"
 						:player-name="player.n"
-						:player-symbol="player.s"
+						:player-symbol="player.r"
 					/>
 				</div>
 			</div>
@@ -41,7 +41,7 @@ withDefaults(defineProps<Props>(), {
 						:key="`pastCompanions-${j}`"
 						:player-link="player.l"
 						:player-name="player.n"
-						:player-symbol="player.s"
+						:player-symbol="player.r"
 					/>
 				</div>
 			</div>
