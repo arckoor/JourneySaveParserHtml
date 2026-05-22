@@ -13,7 +13,7 @@
 
 [Journey](https://thatgamecompany.com/journey/) is a video game made by [ThatGameCompany](https://thatgamecompany.com/).
 
-This game does not contain any conventional communication means, instead players have to rely on their movement and [chirps](https://journey.fandom.com/wiki/Chirp) alone. 
+This game does not contain any conventional communication means, instead players have to rely on their movement and [chirps](https://journey.fandom.com/wiki/Chirp) alone.
 
 At the end of a playthrough the game reveals the companions a player has been traveling with in form of the CMATW (Companions Met Along The Way) screen.
 
@@ -34,4 +34,8 @@ The editor has drawn inspiration as well as offsets from [this](https://github.c
 The Statistics page displays all currently known information that can be extracted from a given SAVE.BIN (Companion data is not included, as it is already shown in the Parser).
 
 ## Development
-This project uses the [Nuxt](https://nuxt.com/) framework, so components should never have to be imported directly. Refer to the [documentation](https://nuxt.com/docs/guide/directory-structure/components) to find out which directories are automatically imported and in what way. You can use the `PLACEHOLDER.BIN` file provided in `/docs` to test your changes. Please adhere to the styling guidelines enforced with `eslint`.
+Using the [nix](https://nixos.org/download/) package manager is recommended.
+Enter a devshell with `nix develop`, or use [nix-direnv](https://github.com/nix-community/nix-direnv).
+Use `pnpm install` to install all dependencies, and `pnpm dev` to start a development server.
+The docker image can be built using `nix build`.
+You can use the `PLACEHOLDER.BIN` file provided in `/docs` to test your changes.

@@ -1,0 +1,6 @@
+.github/
+app/assets/css/fonts
+app/assets/shaders
+docs/
+pnpm-lock.yaml
+pnpm-workspace.yaml

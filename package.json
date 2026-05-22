@@ -1,30 +1,27 @@
 {
-  "name": "journeysaveparser",
+  "name": "journey-save-parser",
   "private": true,
   "version": "2.0.0",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
-    "analyze": "nuxt analyze",
     "generate": "nuxt generate",
-    "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --ignore-path .gitignore",
-    "generateFont": "fantasticon"
+    "clean": "rm -r node_modules .output .nuxt dist result",
+    "generate-font": "fantasticon",
+    "type-check": "vue-tsc --noEmit",
+    "fmt": "prettier . --write"
   },
   "dependencies": {
-    "@types/node": "^24.0.7",
+    "@types/node": "^25.9.1",
     "curtainsjs": "^8.1.6",
-    "fantasticon": "^3.0.0",
-    "nuxt": "^3.17.5",
-    "typescript": "^5.8.3",
+    "fantasticon": "^4.1.0",
+    "nuxt": "^4.4.6",
+    "typescript": "^6.0.3",
     "vue-curtains": "^1.0.2",
-    "vue-tsc": "^2.2.10"
+    "vue-tsc": "^3.3.1"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^8.35.0",
-    "@typescript-eslint/parser": "^8.35.0",
-    "eslint": "^9.30.0",
-    "eslint-plugin-vue": "^10.2.0"
+    "prettier": "^3.8.3"
   }
 }

@@ -1,0 +1,13 @@
+services:
+  journey-save-parser:
+    image: journey-save-parser
+    build: .
+    restart: unless-stopped
+    container_name: journey-save-parser
+    networks:
+      - journey-save-parser-network
+
+networks:
+  journey-save-parser-network:
+    name: journey-save-parser-network
+    internal: true
