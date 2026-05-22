@@ -121,7 +121,7 @@ export default defineComponent({
             };
 
             swapArray(offsets.companionName, offsets.companionOffset);
-            swapArray(offsets.companionSymbol, offsets.companionSymbolOffset);
+            swapArray(0x11c8, offsets.companionSymbolOffset);
         },
     },
 });

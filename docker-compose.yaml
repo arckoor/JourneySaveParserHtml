@@ -1,7 +1,6 @@
 services:
   journey-save-parser:
-    image: journey-save-parser
-    build: .
+    image: ghcr.io/arckoor/journey-save-parser:latest
     restart: unless-stopped
     container_name: journey-save-parser
     networks:
