@@ -1,10 +1,10 @@
 :root {
     --color-text: #ffffff;
 
-    --font-size--default: 40px;
-    --font-size--subscript: 30px;
-    --font-size--section: 50px;
-    --font-size--heading: 65px;
+    --font-size--default: clamp(18px, 10px + 2.5vw, 40px);
+    --font-size--subscript: clamp(14px, 8.18px + 1.82vw, 30px);
+    --font-size--section: clamp(22px, 11.82px + 3.18vw, 50px);
+    --font-size--heading: clamp(28px, 14.55px + 4.2vw, 65px);
 
     --navbar-time: 0.6s;
 }
@@ -53,9 +53,18 @@ body {
     }
 }
 
+.hov {
+    transition:
+        text-shadow 0.2s ease,
+        box-shadow 0.2s ease,
+        background-color 0.2s ease,
+        border-radius 0.2s ease;
+}
+
 .hov:hover {
     border-radius: 7px;
-    text-shadow: -2px 0px 20px #c5c4c2b9;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.85);
+    box-shadow: 0 0 16px rgba(255, 255, 255, 0.35);
 }
 
 .hovLight:hover {

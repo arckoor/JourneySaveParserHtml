@@ -18,7 +18,7 @@ const showEditor = useShowEditor();
 
 <style scoped>
 .container {
-    padding: 250px 0 10px 16%;
+    padding: 20vh 0 10px 16%;
     max-width: 90%;
 }
 

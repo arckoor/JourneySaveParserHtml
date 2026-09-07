@@ -5,11 +5,17 @@ defineProps<{
 }>();
 defineEmits(["retract"]);
 const theme = useTheme();
+const hovered = ref(false);
 </script>
 
 <template>
-    <div>
-        <NuxtLink :to="link" :class="'item ' + theme.background" @click="$emit('retract')" @dragstart.prevent>
+    <div
+        class="container"
+        :class="{ hoverActive: hovered, hovLight: theme.isLight }"
+        @mouseenter="hovered = true"
+        @mouseleave="hovered = false"
+    >
+        <NuxtLink :to="link" class="item" @click="$emit('retract')" @dragstart.prevent>
             <template v-if="$route.fullPath === link">
                 <u>{{ displayName }}</u>
             </template>
@@ -21,11 +27,24 @@ const theme = useTheme();
 </template>
 
 <style scoped>
-div {
-    flex-basis: 100%;
-    overflow: hidden;
+.container {
+    flex: 0 0 auto;
     white-space: nowrap;
-    text-overflow: ellipsis;
+    transition:
+        text-shadow 0.2s ease,
+        box-shadow 0.2s ease,
+        background-color 0.2s ease,
+        border-radius 0.2s ease;
+}
+
+.container.hoverActive {
+    border-radius: 7px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.85);
+    box-shadow: 0 0 16px rgba(255, 255, 255, 0.35);
+}
+
+.container.hoverActive.hovLight {
+    background-color: #eff2f51f;
 }
 
 a,
@@ -36,6 +55,8 @@ a:visited {
 }
 
 .item {
+    display: block;
     padding: 0 10px;
+    cursor: pointer;
 }
 </style>
