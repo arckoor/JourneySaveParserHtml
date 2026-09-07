@@ -1,11 +1,7 @@
-node_modules
-*.log*
+.direnv
+.vscode/
 .nuxt
-.nitro
-.cache
 .output
-.env
+node_modules
 dist
-.vscode/*
-!.vscode/extensions.json
-*.BIN
+result

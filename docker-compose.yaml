@@ -1,0 +1,12 @@
+services:
+  journey-save-parser:
+    image: ghcr.io/arckoor/journey-save-parser:latest
+    restart: unless-stopped
+    container_name: journey-save-parser
+    networks:
+      - journey-save-parser-network
+
+networks:
+  journey-save-parser-network:
+    name: journey-save-parser-network
+    internal: true
