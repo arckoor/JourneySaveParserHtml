@@ -61,8 +61,9 @@ withDefaults(defineProps<Props>(), {
 
 <style scoped>
 .resultZone {
-    padding: max(100px, 20vh) 0 10px 10%;
+    padding: 160px 0 10px 16%;
     max-width: 90%;
+    overflow: scroll;
 }
 
 .companions {

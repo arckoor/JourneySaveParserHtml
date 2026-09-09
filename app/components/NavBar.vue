@@ -99,16 +99,10 @@ export default defineComponent({
     methods: {
         updateItemsHeight() {
             const el = this.$refs.scrollWrap as HTMLElement;
-            if (!el) {
-                return;
-            }
             this.itemsHeight = el.offsetHeight;
         },
         updateNavHeightVar() {
             const el = this.$refs.navbarRoot as HTMLElement;
-            if (!el) {
-                return;
-            }
             document.documentElement.style.setProperty("--nav-height", `${el.offsetHeight}px`);
         },
         stopBounce() {
@@ -132,9 +126,6 @@ export default defineComponent({
         },
         updateFade() {
             const el = this.$refs.scrollContainer as HTMLElement;
-            if (!el) {
-                return;
-            }
             this.showLeftFade = el.scrollLeft > 2;
             this.showRightFade = el.scrollLeft < el.scrollWidth - el.clientWidth - 2;
         },
@@ -205,6 +196,7 @@ img {
     top: 0;
     left: 0;
     width: 100%;
+    height: var(--navbar-height);
     z-index: 9999;
 }
 
@@ -247,7 +239,7 @@ img {
     width: 24px;
     pointer-events: none;
     z-index: 1;
-    background: rgba(255, 255, 255, 0.3);
+    background: #ffffff60;
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
     border-radius: 0;

@@ -190,7 +190,7 @@ a:visited {
     z-index: 999;
     position: relative;
     width: 100%;
-    min-height: 100vh;
+    height: 100%;
     box-sizing: border-box;
     border: 4px solid transparent;
     border-top: 0px;

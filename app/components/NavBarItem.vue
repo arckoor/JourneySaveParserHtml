@@ -11,7 +11,7 @@ const hovered = ref(false);
 <template>
     <div
         class="container"
-        :class="{ hoverActive: hovered, hovLight: theme.isLight }"
+        :class="{ hov: hovered, hovLight: theme.isLight }"
         @mouseenter="hovered = true"
         @mouseleave="hovered = false"
     >
@@ -37,16 +37,6 @@ const hovered = ref(false);
         border-radius 0.2s ease;
 }
 
-.container.hoverActive {
-    border-radius: 7px;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.85);
-    box-shadow: 0 0 16px rgba(255, 255, 255, 0.35);
-}
-
-.container.hoverActive.hovLight {
-    background-color: #eff2f51f;
-}
-
 a,
 a:visited {
     color: var(--color-text);
@@ -55,8 +45,6 @@ a:visited {
 }
 
 .item {
-    display: block;
     padding: 0 10px;
-    cursor: pointer;
 }
 </style>
