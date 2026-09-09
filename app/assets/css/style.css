@@ -4,7 +4,7 @@
     --font-size--default: clamp(18px, 10px + 2.5vw, 40px);
     --font-size--subscript: clamp(14px, 8.18px + 1.82vw, 30px);
     --font-size--section: clamp(22px, 11.82px + 3.18vw, 30px);
-    --font-size--heading: clamp(22px, 14.55px + 4.2vw, min(65px, 3vw));
+    --font-size--heading: clamp(28px, 14.55px + 4.2vw, 65px);
 
     --navbar-height: 75px;
 

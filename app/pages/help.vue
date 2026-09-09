@@ -92,7 +92,7 @@
     justify-content: flex-start;
     align-items: flex-start;
     flex-direction: column;
-    margin: 100px 5% 20px 5%;
+    margin: 120px 5% 20px 5%;
     max-width: 90%;
     box-sizing: border-box;
     overflow-wrap: anywhere;
